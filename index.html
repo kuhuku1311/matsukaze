@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>松風</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: "Hiragino Mincho Pro", "MS Mincho", serif;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+
+    .container {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      color: white;
+      font-size: 5vw;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="main">
+「松風」へのご案内。
+  </div>
+
+  <script>
+    const questions = [
+      '「松風」はshrn中生徒限定のオープンチャットです。',
+      'このオプチャは「匿名にしてみんなで適当に話し合おう」という目的です。',
+      'もし入るなら誰にもわからないようなアイコン、名前でお願いします。',
+      'めんどくさくなったらどんどん抜けてださい、って感じの適当なオプチャです。',
+      'ただ、ルールは守ってください。',
+      'それでは、私は貴方を歓迎します。'
+    ];
+
+    const inviteUrl = 'https://line.me/ti/g2/jelXc4tsdWMGa5qfoQ6W23khR5q2DJ2wUii--Q?utm_source=invitation&utm_medium=link_copy&utm_campaign=default';
+
+    const main = document.getElementById('main');
+
+    main.addEventListener('click', () => {
+      handleDialog();
+    });
+
+    function handleDialog() {
+      for (let i = 0; i < questions.length; i++) {
+        const answer = confirm(questions[i]);
+        if (!answer) {
+          return; 
+        }
+      }
+      
+      window.location.href = inviteUrl;
+    }
+  </script>
+</body>
+</html>
